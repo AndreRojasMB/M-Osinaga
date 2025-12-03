@@ -10,6 +10,9 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { AuthLayout } from 'src/layouts/auth';
 import { DashboardLayout } from 'src/layouts/dashboard';
 
+import { ProductDetailView } from 'src/sections/catalog/view';
+
+
 // ----------------------------------------------------------------------
 
 export const HomePage = lazy(() => import('src/pages/homepage'));
@@ -23,6 +26,7 @@ export const CatalogPage = lazy(() => import('src/pages/catalog'));
 export const ProductDetailPage = lazy(() => import('src/pages/product-detail'));
 export const ServicesPage = lazy(() => import('src/pages/services'));
 export const ServiceDetailPage = lazy(() => import('src/pages/service-detail'));
+
 
 const renderFallback = () => (
   <Box
@@ -99,6 +103,7 @@ export const routesSection: RouteObject[] = [
       { path: 'user', element: <UserPage /> },
       { path: 'products', element: <ProductsPage /> },
       { path: 'blog', element: <BlogPage /> },
+      { path: 'catalog/:productId', element: <ProductDetailView /> },
     ],
   },
   {

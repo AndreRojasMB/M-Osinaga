@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
@@ -6,11 +5,10 @@ import { HomeNavbar } from 'src/sections/overview/home-navbar';
 import { HomeFooter } from 'src/sections/overview/home-footer';
 import { WhatsappButton } from 'src/sections/overview/whatsapp-button';
 
-import { ProductDetailHero } from '../product-detail-hero';
 import { ProductUseCases } from '../product-use-cases';
+import { ProductDetailHero } from '../product-detail-hero';
+import { productData, type Product } from '../product-data';
 
-import { productData } from '../product-data';  // 👈 nuevo import
-import type { Product } from '../product-data';
 
 // ----------------------------------------------------------------------
 

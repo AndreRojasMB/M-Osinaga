@@ -1,17 +1,23 @@
-import type { BoxProps } from '@mui/material/Box';
+// src/sections/services/services-carousel.tsx
+
 import type React from 'react';
+import type { BoxProps } from '@mui/material/Box';
 
-import { useEffect, useRef, useState } from 'react';
+// React Router
 import { useNavigate } from 'react-router-dom';
+// React
+import { useEffect, useRef, useState } from 'react';
 
+// MUI
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
-import { AppointmentModal } from './appointment-modal';
+// Interno
+import { AppointmentModal } from 'src/sections/services/appointment-modal';
 
 // ----------------------------------------------------------------------
 
@@ -21,38 +27,38 @@ const services = [
     title: 'Asesorías personalizadas 1:1',
     description: 'Conversemos de tu proyecto',
     features: ['Creación de planos', 'Implementación 3D'],
-    icon: '💼',
+    icon: '/assets/images/icon/ic 6.png',
   },
   {
     id: 'visitas',
     title: 'Visitas técnicas',
     description: 'Visitamos tu proyecto o negocio',
     features: ['Revisión de equipos y diagnóstico', '*Servicio disponible en Perú'],
-    icon: '🔧',
+    icon: '/assets/images/icon/ic7.png',
   },
   {
     id: 'mantenimiento-preventivo',
     title: 'Mantenimiento preventivo',
     description: 'Revisamos tus equipos (fabricados por nosotros)',
     features: ['Realizamos el mantenimiento preventivo'],
-    icon: '⚙️',
+    icon: '/assets/images/icon/ic8.png',
   },
   {
     id: 'mantenimiento-correctivo',
     title: 'Mantenimiento correctivo',
     description: 'Revisamos tus equipos (fabricados por nosotros)',
     features: ['Realizamos el diagnóstico respectivo', 'Reparamos el equipo y cambiamos las piezas dañadas'],
-    icon: '🔨',
+    icon: '/assets/images/icon/ic9.png',
   },
 ];
 
 // 🔢 Configuración del carrusel
 const WHATSAPP_NUMBER = '51997425196';
-const SCROLL_SPEED = 0.8;          // velocidad auto-scroll
-const FRICTION = 0.95;             // fricción del momentum
-const MIN_VELOCITY = 0.1;          // velocidad mínima antes de parar
-const DRAG_CLICK_THRESHOLD = 10;   // px para distinguir drag vs click
-const RESET_THRESHOLD = 5;         // margen para reset sin salto
+const SCROLL_SPEED = 0.8; // velocidad auto-scroll
+const FRICTION = 0.95; // fricción del momentum
+const MIN_VELOCITY = 0.1; // velocidad mínima antes de parar
+const DRAG_CLICK_THRESHOLD = 10; // px para distinguir drag vs click
+const RESET_THRESHOLD = 5; // margen para reset sin salto
 
 export function ServicesCarousel({ sx, ...other }: BoxProps) {
   const navigate = useNavigate();
@@ -83,16 +89,16 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
     }
   };
 
-  // Botón "Agendar" → modal (mantiene tu comportamiento original)
+  // Botón "Agendar" → modal
   const handleAgendarClick = (e: React.MouseEvent, serviceTitle: string) => {
-    e.stopPropagation(); // evita que se dispare el click de la card
+    e.stopPropagation();
     setSelectedService(serviceTitle);
     setModalOpen(true);
   };
 
   // Botón WhatsApp → abre API con mensaje personalizado
   const handleWhatsappClick = (e: React.MouseEvent, serviceTitle: string) => {
-    e.stopPropagation(); // evita navegación de la card
+    e.stopPropagation();
 
     const message = `Hola, me gustaría agendar un servicio con Maquinarias Osinaga. Estoy interesado en el servicio: ${serviceTitle}. ¿Podemos coordinar detalles?`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -233,9 +239,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
 
   // AUTO-SCROLL INFINITO SIN SALTOS
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
     let animationId: number | null = null;
 
     const autoScroll = () => {
@@ -247,29 +250,34 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
       const oneSetWidth = el.scrollWidth / 3;
       const currentScroll = el.scrollLeft;
 
-      // reset adelante
       if (currentScroll >= oneSetWidth * 2 - RESET_THRESHOLD) {
         const originalBehavior = el.style.scrollBehavior;
         el.style.scrollBehavior = 'auto';
         el.scrollLeft = oneSetWidth;
+
         requestAnimationFrame(() => {
-          el.style.scrollBehavior = originalBehavior;
+          const el2 = scrollRef.current;
+          if (el2) {
+            el2.style.scrollBehavior = originalBehavior;
+          }
         });
-      }
-      // reset atrás
-      else if (currentScroll <= RESET_THRESHOLD) {
+      } else if (currentScroll <= RESET_THRESHOLD) {
         const originalBehavior = el.style.scrollBehavior;
         el.style.scrollBehavior = 'auto';
         el.scrollLeft = oneSetWidth;
+
         requestAnimationFrame(() => {
-          el.style.scrollBehavior = originalBehavior;
+          const el2 = scrollRef.current;
+          if (el2) {
+            el2.style.scrollBehavior = originalBehavior;
+          }
         });
       }
 
       animationId = requestAnimationFrame(autoScroll);
     };
 
-    if (isAutoScrolling) {
+    if (isAutoScrolling && scrollRef.current) {
       animationId = requestAnimationFrame(autoScroll);
     }
 
@@ -283,6 +291,7 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
   // Inicializar carrusel en el segundo set (centro)
   useEffect(() => {
     const el = scrollRef.current;
+
     if (el) {
       el.style.scrollBehavior = 'auto';
       const initialScroll = el.scrollWidth / 3;
@@ -303,7 +312,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
     };
   }, []);
 
-  // Props del contenedor scroll
   const scrollContainerProps = {
     ref: scrollRef,
     onMouseDown: handleMouseDown,
@@ -315,7 +323,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
     onTouchEnd: handleTouchEnd,
   };
 
-  // Estilos del contenedor scroll
   const scrollContainerSx = {
     display: 'flex',
     gap: 3,
@@ -337,7 +344,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
     msUserSelect: 'none',
   } as const;
 
-  // Gradientes laterales (como en el otro carrusel)
   const gradientsWrapperSx = {
     position: 'relative',
     '&::before': {
@@ -364,7 +370,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
     },
   } as const;
 
-  // Estilos base de las cards
   const cardItemSx = {
     minWidth: { xs: 300, md: 380 },
     flexShrink: 0,
@@ -417,7 +422,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
             Soluciones profesionales para tu proyecto
           </Typography>
 
-          {/* Carrusel con drag + auto-scroll infinito */}
           <Box sx={gradientsWrapperSx}>
             <Box {...scrollContainerProps} sx={scrollContainerSx}>
               {triplicatedServices.map((service, index) => (
@@ -434,17 +438,18 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
                       flexDirection: 'column',
                     }}
                   >
-                    {/* Icon */}
                     <Box
+                      component="img"
+                      src={service.icon}
+                      alt={service.title}
                       sx={{
-                        fontSize: '3rem',
+                        width: 64,
+                        height: 64,
                         mb: 2,
+                        objectFit: 'contain',
                       }}
-                    >
-                      {service.icon}
-                    </Box>
+                    />
 
-                    {/* Title */}
                     <Typography
                       variant="h5"
                       sx={{
@@ -457,7 +462,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
                       {service.title}
                     </Typography>
 
-                    {/* Description */}
                     <Typography
                       sx={{
                         color: '#385882',
@@ -468,7 +472,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
                       {service.description}
                     </Typography>
 
-                    {/* Features */}
                     <Box sx={{ mb: 3, flexGrow: 1 }}>
                       {service.features.map((feature, idx) => (
                         <Typography
@@ -481,7 +484,7 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
                             alignItems: 'flex-start',
                             '&::before': {
                               content: '"•"',
-                              color: '#0768E8',
+                              color: '#19304e',
                               fontWeight: 'bold',
                               marginRight: 1,
                             },
@@ -492,7 +495,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
                       ))}
                     </Box>
 
-                    {/* Botones: Agendar + WhatsApp */}
                     <Box
                       sx={{
                         display: 'flex',
@@ -549,7 +551,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
             </Box>
           </Box>
 
-          {/* Note */}
           <Typography
             sx={{
               textAlign: 'center',
@@ -563,7 +564,6 @@ export function ServicesCarousel({ sx, ...other }: BoxProps) {
         </Container>
       </Box>
 
-      {/* Modal */}
       <AppointmentModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}

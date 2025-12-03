@@ -299,9 +299,361 @@ export const productData: Record<string, Product> = {
     ],
   },
 
-  // Aquí luego puedes definir:
-  // '3': { ... }      → 3 vías manifold
-  // '7': { ... }      → 7 vías manifold
-  // 'D': { ... }      → dispensador de hierba
-  // 'C-1': { ... }    → cabina personal sauna
+  // =========================
+  // INTERCAMBIADORES DE CALOR
+  // =========================
+  'int-30-60': {
+    id: 'int-30-60',
+    name: 'Intercambiador 30-60',
+    category: 'Intercambiador de Calor',
+    description:
+      'Intercambiador de calor compacto para aplicaciones de sauna y calentamiento de agua sanitaria. Ideal para pequeños hoteles, spas y gimnasios.',
+    images: ['/assets/images/machine/intercambiador-calor-30-60.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Intercambiador de calor' },
+      { label: 'Modelo', value: '30-60' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Aplicación principal', value: 'Transferencia de calor entre circuito de vapor y agua' },
+      { label: 'Capacidad recomendada', value: 'Pequeños sistemas de sauna y duchas calientes' },
+    ],
+    useCases: [
+      {
+        title: 'Calentamiento de agua sanitaria',
+        image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=600',
+        description:
+          'Permite aprovechar el vapor generado para calentar agua sanitaria en duchas y servicios higiénicos.',
+      },
+      {
+        title: 'Spas y gimnasios',
+        image: 'https://images.unsplash.com/photo-1517832207067-4db24a2ae47c?w=600',
+        description:
+          'Solución eficiente para integrar sauna y duchas calientes en instalaciones deportivas y centros de bienestar.',
+      },
+    ],
+  },
+
+  'int-39-90': {
+    id: 'int-39-90',
+    name: 'Intercambiador 39-90',
+    category: 'Intercambiador de Calor',
+    description:
+      'Intercambiador de calor de mayor capacidad, diseñado para instalaciones comerciales con demanda media de agua caliente.',
+    images: ['/assets/images/machine/intercambiador-calor-39-90.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Intercambiador de calor' },
+      { label: 'Modelo', value: '39-90' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Aplicación principal', value: 'Sistemas de agua caliente en spas y hoteles pequeños' },
+    ],
+    useCases: [
+      {
+        title: 'Hoteles boutique',
+        image: 'https://images.unsplash.com/photo-1501117716987-c8e1ecb2108a?w=600',
+        description:
+          'Brinda estabilidad en la temperatura del agua caliente para habitaciones y áreas de spa.',
+      },
+    ],
+  },
+
+  'int-44-120': {
+    id: 'int-44-120',
+    name: 'Intercambiador 44-120',
+    category: 'Intercambiador de Calor',
+    description:
+      'Intercambiador robusto para proyectos con mayor cantidad de puntos de consumo de agua caliente.',
+    images: ['/assets/images/machine/intercambiador-calor-44-120.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Intercambiador de calor' },
+      { label: 'Modelo', value: '44-120' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Aplicación principal', value: 'Hoteles, clubes y centros de bienestar' },
+    ],
+    useCases: [
+      {
+        title: 'Centros de bienestar',
+        image: 'https://images.unsplash.com/photo-1519823551271-9d2de6a9b0f4?w=600',
+        description:
+          'Integra el sistema de sauna con duchas de contraste y zonas de hidroterapia.',
+      },
+    ],
+  },
+
+  'int-55-150': {
+    id: 'int-55-150',
+    name: 'Intercambiador 55-150',
+    category: 'Intercambiador de Calor',
+    description:
+      'Intercambiador de gran capacidad, recomendado para complejos deportivos, hoteles grandes y proyectos con alta demanda de agua caliente.',
+    images: ['/assets/images/machine/intercambiador-calor-55-150.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Intercambiador de calor' },
+      { label: 'Modelo', value: '55-150' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Aplicación principal', value: 'Sistemas centralizados de agua caliente' },
+    ],
+    useCases: [
+      {
+        title: 'Complejos deportivos',
+        image: 'https://images.unsplash.com/photo-1517832207067-4db24a2ae47c?w=600',
+        description:
+          'Soporta múltiples duchas y servicios simultáneos sin pérdida significativa de temperatura.',
+      },
+    ],
+  },
+
+  // =========================
+  // CALENTADORES DE AGUA
+  // =========================
+  'cal-30-60': {
+    id: 'cal-30-60',
+    name: 'Calentador 30-60',
+    category: 'Calentador de Agua',
+    description:
+      'Calentador de agua compacto para aplicaciones residenciales o pequeños negocios con demanda moderada.',
+    images: ['/assets/images/machine/calentador-agua-30-60.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '30-60' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Duchas y servicios higiénicos',
+        image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600',
+        description:
+          'Calentamiento eficiente de agua para duchas individuales o pequeños grupos de uso.',
+      },
+    ],
+  },
+
+  'cal-39-90': {
+    id: 'cal-39-90',
+    name: 'Calentador 39-90',
+    category: 'Calentador de Agua',
+    description:
+      'Calentador de agua para instalaciones con varios puntos de consumo simultáneo.',
+    images: ['/assets/images/machine/calentador-agua-39-90.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '39-90' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Spas y gimnasios',
+        image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600',
+        description:
+          'Permite abastecer varias duchas de forma estable, ideal para spas y centros deportivos.',
+      },
+    ],
+  },
+
+  'cal-44-120': {
+    id: 'cal-44-120',
+    name: 'Calentador 44-120',
+    category: 'Calentador de Agua',
+    description:
+      'Calentador de agua diseñado para hoteles pequeños, saunas comerciales y proyectos con demanda continua.',
+    images: ['/assets/images/machine/calentador-agua-44-120.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '44-120' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Hoteles y hospedajes',
+        image: 'https://images.unsplash.com/photo-1508255139162-e1f7b7288ab7?w=600',
+        description:
+          'Provee agua caliente constante para habitaciones y zonas comunes.',
+      },
+    ],
+  },
+
+  'cal-55-150': {
+    id: 'cal-55-150',
+    name: 'Calentador 55-150',
+    category: 'Calentador de Agua',
+    description:
+      'Calentador de alta capacidad para proyectos con gran cantidad de duchas y puntos de consumo.',
+    images: ['/assets/images/machine/calentador-agua-55-150.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '55-150' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Complejos deportivos y clubes',
+        image: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600',
+        description:
+          'Diseñado para soportar horarios pico con muchas duchas activas al mismo tiempo.',
+      },
+    ],
+  },
+
+  'cal-60-180': {
+    id: 'cal-60-180',
+    name: 'Calentador 60-180',
+    category: 'Calentador de Agua',
+    description:
+      'Calentador de gran tamaño utilizado en proyectos especiales e instalaciones con consumo intensivo de agua caliente.',
+    images: ['/assets/images/machine/calentador-agua-60-180.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '60-180' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Proyectos especiales',
+        image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=600',
+        description:
+          'Puede integrarse a sistemas centralizados de agua caliente en hoteles grandes o centros de bienestar.',
+      },
+    ],
+  },
+
+  'cal-60-180R': {
+    id: 'cal-60-180R',
+    name: 'Calentador 60-180 Reforzado',
+    category: 'Calentador de Agua',
+    description:
+      'Versión reforzada del modelo 60-180, pensada para trabajo en condiciones exigentes y operación prácticamente continua.',
+    images: ['/assets/images/machine/calentador-agua-60-180-reforzado.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Calentador de agua' },
+      { label: 'Modelo', value: '60-180 Reforzado' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304 reforzado' },
+      { label: 'Sistema de energía', value: 'Gas: GN / GLP' },
+    ],
+    useCases: [
+      {
+        title: 'Instalaciones de uso continuo',
+        image: 'https://images.unsplash.com/photo-1522648485144-849409408aee?w=600',
+        description:
+          'Preparado para operar en proyectos con demanda constante de agua caliente durante todo el día.',
+      },
+    ],
+  },
+
+  // =========================
+  // VÍAS MANIFOLD
+  // =========================
+  'man-3': {
+    id: 'man-3',
+    name: 'Manifold 3 vías',
+    category: 'Vías de Manifold',
+    description:
+      'Múltiple distribuidor de vapor de 3 vías, utilizado para alimentar varias líneas de sauna desde un solo generador.',
+    images: ['/assets/images/machine/3-vias-manifold.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Manifold distribuidor de vapor' },
+      { label: 'Modelo', value: '3 vías' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Número de salidas', value: '3 líneas de vapor' },
+    ],
+    useCases: [
+      {
+        title: 'Múltiples cabinas de sauna',
+        image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600',
+        description:
+          'Permite distribuir el vapor generado hacia varias cabinas o zonas de trabajo.',
+      },
+    ],
+  },
+
+  'man-7': {
+    id: 'man-7',
+    name: 'Manifold 7 vías',
+    category: 'Vías de Manifold',
+    description:
+      'Múltiple distribuidor de 7 vías diseñado para proyectos con varias cabinas o puntos de consumo de vapor.',
+    images: ['/assets/images/machine/7-vias-manifold.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Manifold distribuidor de vapor' },
+      { label: 'Modelo', value: '7 vías' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable 304' },
+      { label: 'Número de salidas', value: '7 líneas de vapor' },
+    ],
+    useCases: [
+      {
+        title: 'Complejos con múltiples cabinas',
+        image: 'https://images.unsplash.com/photo-1517832207067-4db24a2ae47c?w=600',
+        description:
+          'Ideal para spas o centros de bienestar con varios ambientes de sauna trabajando en paralelo.',
+      },
+    ],
+  },
+
+  // =========================
+  // DISPENSADOR DE HIERBA
+  // =========================
+  'disp-D': {
+    id: 'disp-D',
+    name: 'Dispensador de Hierba',
+    category: 'Dispensador de Hierba',
+    description:
+      'Dispensador diseñado para aromatizar cabinas de sauna mediante hierbas naturales, mejorando la experiencia del usuario.',
+    images: ['/assets/images/machine/dispensador-hierba.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Dispensador de hierba para sauna' },
+      { label: 'Modelo', value: 'D' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Material utilizado', value: 'Acero inoxidable y elementos resistentes al calor' },
+      { label: 'Aplicación principal', value: 'Aromaterapia en cabinas de sauna' },
+    ],
+    useCases: [
+      {
+        title: 'Saunas aromáticas',
+        image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600',
+        description:
+          'Permite incorporar hierbas o mezclas naturales para ofrecer experiencias diferenciadas de relajación.',
+      },
+    ],
+  },
+
+  // =========================
+  // CABINA PERSONAL DE SAUNA
+  // =========================
+  'cab-C-1': {
+    id: 'cab-C-1',
+    name: 'Cabina Personal C-1',
+    category: 'Cabina Personal Sauna',
+    description:
+      'Cabina de sauna individual, compacta y lista para instalar, ideal para departamentos, casas o espacios reducidos.',
+    images: ['/assets/images/machine/cabina-personal-sauna.png'],
+    specifications: [
+      { label: 'Equipo', value: 'Cabina personal de sauna' },
+      { label: 'Modelo', value: 'C-1' },
+      { label: 'Fábrica', value: 'Maquinarias Osinaga' },
+      { label: 'Capacidad', value: '1 persona' },
+      { label: 'Aplicación principal', value: 'Uso residencial o consultas de bienestar' },
+    ],
+    useCases: [
+      {
+        title: 'Sauna en casa',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600',
+        description:
+          'Solución compacta para personas que desean contar con una sauna propia sin grandes obras civiles.',
+      },
+    ],
+  },
 };

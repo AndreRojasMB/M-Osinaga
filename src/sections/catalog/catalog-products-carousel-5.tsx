@@ -1,9 +1,9 @@
-import type { BoxProps } from '@mui/material/Box';
-
-import { useRef, useState, useEffect } from 'react';
+// 1) Librerías externas
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
-import Box from '@mui/material/Box';
+// 2) MUI (orden que le gusta al linter)
+import Box, { type BoxProps } from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -14,16 +14,34 @@ import Typography from '@mui/material/Typography';
 
 const products = [
   {
-    id: 'D',
-    name: 'Modelo 1',
-    image: '../../../public/assets/images/machine/dispensador-hierba.png',
-    category: 'Dispensador de Hierba',
+    id: 'int-30-60',
+    name: 'Modelo 30-60',
+    image: '../../../public/assets/images/machine/intercambiador-calor-30-60.png',
+    category: 'Intercambiador de Calor',
+  },
+  {
+    id: 'int-39-90',
+    name: 'Modelo 39-90',
+    image: '../../../public/assets/images/machine/intercambiador-calor-39-90.png',
+    category: 'Intercambiador de Calor',
+  },
+  {
+    id: 'int-44-120',
+    name: 'Modelo 44-120',
+    image: '../../../public/assets/images/machine/intercambiador-calor-44-120.png',
+    category: 'Intercambiador de Calor',
+  },
+  {
+    id: 'int-55-150',
+    name: 'Modelo 55-150',
+    image: '../../../public/assets/images/machine/intercambiador-calor-55-150.png',
+    category: 'Intercambiador de Calor',
   },
 ];
 
 export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
   const navigate = useNavigate();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const velocityRef = useRef(0);
   const lastPosRef = useRef(0);
   const lastTimeRef = useRef(0);
@@ -47,18 +65,20 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
   // Función para aplicar momentum después de soltar el drag
   const applyMomentum = () => {
-    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
     const friction = 0.95; // Factor de fricción (0.9-0.98 para diferentes sensaciones)
     const minVelocity = 0.1; // Velocidad mínima antes de detener
 
     const animate = () => {
-      if (!scrollRef.current) return;
+      const el = scrollRef.current;
+      if (!el) return;
 
       velocityRef.current *= friction;
 
       if (Math.abs(velocityRef.current) > minVelocity) {
-        scrollRef.current.scrollLeft += velocityRef.current;
+        el.scrollLeft += velocityRef.current;
         momentumAnimationRef.current = requestAnimationFrame(animate);
       } else {
         // Detener momentum y reactivar auto-scroll
@@ -74,11 +94,13 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
   // Inicio del drag
   const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
     // Cancelar cualquier momentum activo
-    if (momentumAnimationRef.current) {
+    if (momentumAnimationRef.current !== null) {
       cancelAnimationFrame(momentumAnimationRef.current);
+      momentumAnimationRef.current = null;
     }
 
     e.preventDefault();
@@ -88,7 +110,7 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
     velocityRef.current = 0;
 
     setStartX(e.clientX);
-    setScrollLeft(scrollRef.current.scrollLeft);
+    setScrollLeft(container.scrollLeft);
     lastPosRef.current = e.clientX;
     lastTimeRef.current = Date.now();
 
@@ -99,7 +121,8 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
   // Movimiento durante el drag
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!isDragging || !container) return;
 
     e.preventDefault();
 
@@ -110,13 +133,13 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
     // Calcular velocidad para el momentum
     if (deltaTime > 0) {
-      velocityRef.current = (currentX - lastPosRef.current) / deltaTime * 16; // Normalizar a ~60fps
+      velocityRef.current = ((currentX - lastPosRef.current) / deltaTime) * 16; // Normalizar a ~60fps
     }
 
     setDragDistance(deltaX);
 
     // Scroll directo 1:1 (más preciso)
-    scrollRef.current.scrollLeft = scrollLeft - deltaX;
+    container.scrollLeft = scrollLeft - deltaX;
 
     lastPosRef.current = currentX;
     lastTimeRef.current = currentTime;
@@ -136,7 +159,7 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
     if (Math.abs(velocityRef.current) > 1) {
       applyMomentum();
     } else {
-      // Si no hay momentum, reactivar auto-scroll inmediatamente
+      // Si no hay momentum, reactivar auto-scroll después de un rato
       setTimeout(() => {
         setIsAutoScrolling(true);
       }, 1000);
@@ -153,10 +176,12 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
   // Soporte para touch (móviles/tablets)
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
-    if (momentumAnimationRef.current) {
+    if (momentumAnimationRef.current !== null) {
       cancelAnimationFrame(momentumAnimationRef.current);
+      momentumAnimationRef.current = null;
     }
 
     setIsDragging(true);
@@ -166,13 +191,14 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
     const touch = e.touches[0];
     setStartX(touch.clientX);
-    setScrollLeft(scrollRef.current.scrollLeft);
+    setScrollLeft(container.scrollLeft);
     lastPosRef.current = touch.clientX;
     lastTimeRef.current = Date.now();
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!isDragging || !container) return;
 
     const touch = e.touches[0];
     const currentTime = Date.now();
@@ -181,11 +207,11 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
     const deltaX = currentX - startX;
 
     if (deltaTime > 0) {
-      velocityRef.current = (currentX - lastPosRef.current) / deltaTime * 16;
+      velocityRef.current = ((currentX - lastPosRef.current) / deltaTime) * 16;
     }
 
     setDragDistance(deltaX);
-    scrollRef.current.scrollLeft = scrollLeft - deltaX;
+    container.scrollLeft = scrollLeft - deltaX;
 
     lastPosRef.current = currentX;
     lastTimeRef.current = currentTime;
@@ -195,40 +221,38 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
     endDrag();
   };
 
-  // Auto-scroll infinito suave
+  // Auto-scroll infinito suave (arreglado consistent-return)
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
+    let animationId: number | null = null;
     const scrollSpeed = 0.8; // Velocidad ajustable
 
     const autoScroll = () => {
+      const scrollContainer = scrollRef.current;
       if (!scrollContainer || !isAutoScrolling) return;
 
       scrollContainer.scrollLeft += scrollSpeed;
 
       // Loop infinito - reinicia en 1/3 del ancho total
-      const maxScroll = scrollContainer.scrollWidth / 3;
+      const oneSetWidth = scrollContainer.scrollWidth / 3;
       const currentScroll = scrollContainer.scrollLeft;
 
-      if (currentScroll >= maxScroll * 2) {
+      if (currentScroll >= oneSetWidth * 2) {
         // Si llegamos al final del tercer set, volvemos al segundo
-        scrollContainer.scrollLeft = maxScroll;
+        scrollContainer.scrollLeft = oneSetWidth;
       } else if (currentScroll <= 0) {
         // Si llegamos antes del primer set, saltamos al segundo
-        scrollContainer.scrollLeft = maxScroll;
+        scrollContainer.scrollLeft = oneSetWidth;
       }
 
       animationId = requestAnimationFrame(autoScroll);
     };
 
-    if (isAutoScrolling) {
+    if (isAutoScrolling && scrollRef.current) {
       animationId = requestAnimationFrame(autoScroll);
     }
 
     return () => {
-      if (animationId) {
+      if (animationId !== null) {
         cancelAnimationFrame(animationId);
       }
     };
@@ -236,15 +260,17 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
 
   // Inicializar posición en el segundo set
   useEffect(() => {
-    if (scrollRef.current) {
-      const initialScroll = scrollRef.current.scrollWidth / 3;
-      scrollRef.current.scrollLeft = initialScroll;
+    const container = scrollRef.current;
+
+    if (container) {
+      const initialScroll = container.scrollWidth / 3;
+      container.scrollLeft = initialScroll;
     }
 
     return () => {
       document.body.style.overflow = '';
       document.body.style.userSelect = '';
-      if (momentumAnimationRef.current) {
+      if (momentumAnimationRef.current !== null) {
         cancelAnimationFrame(momentumAnimationRef.current);
       }
     };
@@ -272,7 +298,7 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
             textAlign: 'left',
           }}
         >
-          Dispensador de Hierba
+          Intercambiadores de calor
         </Typography>
 
         {/* Carousel Container */}

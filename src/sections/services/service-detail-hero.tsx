@@ -56,7 +56,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
             <Chip
               label="Servicio Profesional"
               sx={{
-                bgcolor: '#0768E8',
+                bgcolor: '#BBCCE2',
                 color: 'white',
                 fontWeight: 600,
                 mb: 2,
@@ -79,7 +79,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
               variant="h5"
               sx={{
                 fontSize: { xs: '1.2rem', md: '1.5rem' },
-                color: '#0768E8',
+                color: '#faf7f2',
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -102,7 +102,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
             <Box sx={{ mb: 4 }}>
               <Typography
                 sx={{
-                  color: '#0768E8',
+                  color: '#faf7f2',
                   fontWeight: 700,
                   mb: 2,
                   fontSize: '1.1rem',
@@ -125,7 +125,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
                         width: 24,
                         height: 24,
                         borderRadius: '50%',
-                        bgcolor: '#0768E8',
+                        bgcolor: '#BBCCE2',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -148,7 +148,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
               variant="contained"
               size="large"
               sx={{
-                bgcolor: '#0768E8',
+                bgcolor: '#BBCCE2',
                 color: 'white',
                 px: 5,
                 py: 2,
@@ -156,7 +156,7 @@ export function ServiceDetailHero({ service, onSchedule, sx, ...other }: Service
                 fontWeight: 700,
                 borderRadius: 3,
                 '&:hover': {
-                  bgcolor: '#0556c7',
+                  bgcolor: '#BBCCE2',
                   transform: 'translateY(-2px)',
                 },
               }}

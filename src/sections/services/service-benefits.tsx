@@ -63,7 +63,7 @@ export function ServiceBenefits({ benefits, sx, ...other }: ServiceBenefitsProps
             <Box
               key={index}
               sx={{
-                bgcolor: '#BBCCE2',
+                bgcolor: '#faf7f2',
                 p: 4,
                 borderRadius: 4,
                 transition: 'all 0.3s ease',
@@ -83,7 +83,7 @@ export function ServiceBenefits({ benefits, sx, ...other }: ServiceBenefitsProps
                   width: 60,
                   height: 60,
                   borderRadius: '50%',
-                  bgcolor: '#0768E8',
+                  bgcolor: '#faf7f2',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

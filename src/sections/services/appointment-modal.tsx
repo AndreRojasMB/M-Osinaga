@@ -110,7 +110,7 @@ export function AppointmentModal({ open, onClose, serviceName, ...other }: Appoi
         {serviceName && (
           <Typography
             sx={{
-              color: '#0768E8',
+              color: '#19304e',
               fontWeight: 600,
               mb: 3,
             }}
@@ -195,11 +195,11 @@ export function AppointmentModal({ open, onClose, serviceName, ...other }: Appoi
                 type="submit"
                 variant="contained"
                 sx={{
-                  bgcolor: '#0768E8',
+                  bgcolor: '#19304e',
                   color: 'white',
                   px: 4,
                   '&:hover': {
-                    bgcolor: '#0556c7',
+                    bgcolor: '#19304e',
                   },
                 }}
               >
