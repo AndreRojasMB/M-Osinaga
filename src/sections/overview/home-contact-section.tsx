@@ -27,18 +27,6 @@ const contactInfo = [
     link: 'https://tiktok.com/@maquinasosinaga',
   },
   {
-    icon: '/assets/images/icon/youtube.png',
-    label: 'YouTube',
-    value: '@maquinasosinaga',
-    link: 'https://youtube.com/@maquinasosinaga',
-  },
-  {
-    icon: '/assets/images/icon/facebook.png',
-    label: 'Facebook',
-    value: '@maquinasosinaga',
-    link: 'https://facebook.com/maquinasosinaga',
-  },
-  {
     icon: '/assets/images/icon/locacion.png',
     label: 'Ubicación',
     value: 'Calle Las Retamas 260\nSalamanca, Ate - Lima\nPerú',
