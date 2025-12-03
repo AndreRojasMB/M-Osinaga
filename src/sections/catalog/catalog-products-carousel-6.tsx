@@ -14,28 +14,10 @@ import Typography from '@mui/material/Typography';
 
 const products = [
   {
-    id: 'int-30-60',
-    name: 'Modelo 30-60',
-    image: '../../../public/assets/images/machine/intercambiador-calor-30-60.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-39-90',
-    name: 'Modelo 39-90',
-    image: '../../../public/assets/images/machine/intercambiador-calor-39-90.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-44-120',
-    name: 'Modelo 44-120',
-    image: '../../../public/assets/images/machine/intercambiador-calor-44-120.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-55-150',
-    name: 'Modelo 55-150',
-    image: '../../../public/assets/images/machine/intercambiador-calor-55-150.png',
-    category: 'Intercambiador de Calor',
+    id: 'cab-C-1',
+    name: 'Modelo C 1',
+    image: '../../../public/assets/images/machine/cabina-personal-sauna.png',
+    category: 'Cabina Personal Sauna',
   },
 ];
 
@@ -298,7 +280,7 @@ export function CatalogProductsCarousel6({ sx, ...other }: BoxProps) {
             textAlign: 'left',
           }}
         >
-          Intercambiadores de calor
+          Cabina Personal Sauna
         </Typography>
 
         {/* Carousel Container */}

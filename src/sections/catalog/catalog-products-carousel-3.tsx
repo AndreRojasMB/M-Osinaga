@@ -14,28 +14,40 @@ import Typography from '@mui/material/Typography';
 
 const products = [
   {
-    id: 'int-30-60',
+    id: 'cal-30-60',
     name: 'Modelo 30-60',
-    image: '../../../public/assets/images/machine/intercambiador-calor-30-60.png',
-    category: 'Intercambiador de Calor',
+    image: '../../../public/assets/images/machine/calentador-agua-30-60.png',
+    category: 'Calentador de Agua',
   },
   {
-    id: 'int-39-90',
+    id: 'cal-39-90',
     name: 'Modelo 39-90',
-    image: '../../../public/assets/images/machine/intercambiador-calor-39-90.png',
-    category: 'Intercambiador de Calor',
+    image: '../../../public/assets/images/machine/calentador-agua-39-90.png',
+    category: 'Calentador de Agua',
   },
   {
-    id: 'int-44-120',
+    id: 'cal-44-120',
     name: 'Modelo 44-120',
-    image: '../../../public/assets/images/machine/intercambiador-calor-44-120.png',
-    category: 'Intercambiador de Calor',
+    image: '../../../public/assets/images/machine/calentador-agua-44-120.png',
+    category: 'Calentador de Agua',
   },
   {
-    id: 'int-55-150',
+    id: 'cal-55-150',
     name: 'Modelo 55-150',
-    image: '../../../public/assets/images/machine/intercambiador-calor-55-150.png',
-    category: 'Intercambiador de Calor',
+    image: '../../../public/assets/images/machine/calentador-agua-55-150.png',
+    category: 'Calentador de Agua',
+  },
+  {
+    id: 'cal-60-180',
+    name: 'Modelo 60-180',
+    image: '../../../public/assets/images/machine/calentador-agua-60-180.png',
+    category: 'Calentador de Agua',
+  },
+  {
+    id: 'cal-60-180R',
+    name: 'Modelo 60-180 Reforzado',
+    image: '../../../public/assets/images/machine/calentador-agua-60-180-reforzado.png',
+    category: 'Calentador de Agua',
   },
 ];
 
@@ -298,7 +310,7 @@ export function CatalogProductsCarousel3({ sx, ...other }: BoxProps) {
             textAlign: 'left',
           }}
         >
-          Intercambiadores de calor
+          Calentador de Agua
         </Typography>
 
         {/* Carousel Container */}

@@ -14,30 +14,19 @@ import Typography from '@mui/material/Typography';
 
 const products = [
   {
-    id: 'int-30-60',
-    name: 'Modelo 30-60',
-    image: '../../../public/assets/images/machine/intercambiador-calor-30-60.png',
-    category: 'Intercambiador de Calor',
+    id: 'man-3',
+    name: 'Modelo 3',
+    image: '../../../public/assets/images/machine/3-vias-manifold.png',
+    category: 'Vias de Manifold',
   },
   {
-    id: 'int-39-90',
-    name: 'Modelo 39-90',
-    image: '../../../public/assets/images/machine/intercambiador-calor-39-90.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-44-120',
-    name: 'Modelo 44-120',
-    image: '../../../public/assets/images/machine/intercambiador-calor-44-120.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-55-150',
-    name: 'Modelo 55-150',
-    image: '../../../public/assets/images/machine/intercambiador-calor-55-150.png',
-    category: 'Intercambiador de Calor',
+    id: 'man-7',
+    name: 'Modelo 7',
+    image: '../../../public/assets/images/machine/7-vias-manifold.png',
+    category: 'Vias de Manifold',
   },
 ];
+
 
 export function CatalogProductsCarousel4({ sx, ...other }: BoxProps) {
   const navigate = useNavigate();
@@ -298,7 +287,7 @@ export function CatalogProductsCarousel4({ sx, ...other }: BoxProps) {
             textAlign: 'left',
           }}
         >
-          Intercambiadores de calor
+          Vias de Manifold
         </Typography>
 
         {/* Carousel Container */}

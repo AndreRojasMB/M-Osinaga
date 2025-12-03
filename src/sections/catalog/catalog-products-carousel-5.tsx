@@ -14,30 +14,13 @@ import Typography from '@mui/material/Typography';
 
 const products = [
   {
-    id: 'int-30-60',
-    name: 'Modelo 30-60',
-    image: '../../../public/assets/images/machine/intercambiador-calor-30-60.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-39-90',
-    name: 'Modelo 39-90',
-    image: '../../../public/assets/images/machine/intercambiador-calor-39-90.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-44-120',
-    name: 'Modelo 44-120',
-    image: '../../../public/assets/images/machine/intercambiador-calor-44-120.png',
-    category: 'Intercambiador de Calor',
-  },
-  {
-    id: 'int-55-150',
-    name: 'Modelo 55-150',
-    image: '../../../public/assets/images/machine/intercambiador-calor-55-150.png',
-    category: 'Intercambiador de Calor',
+    id: 'disp-D',
+    name: 'Modelo 1',
+    image: '../../../public/assets/images/machine/dispensador-hierba.png',
+    category: 'Dispensador de Hierba',
   },
 ];
+
 
 export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
   const navigate = useNavigate();
@@ -298,7 +281,7 @@ export function CatalogProductsCarousel5({ sx, ...other }: BoxProps) {
             textAlign: 'left',
           }}
         >
-          Intercambiadores de calor
+          Dispensador de Hierba
         </Typography>
 
         {/* Carousel Container */}
