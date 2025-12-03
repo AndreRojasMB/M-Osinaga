@@ -23,13 +23,13 @@ const contactInfo = [
   {
     icon: '/assets/images/icon/instagram.png',
     label: 'Instagram',
-    value: '@maquinasosinaga',
+    value: 'Instagram',
     link: 'https://www.instagram.com/maquinariasosinaga/',
   },
   {
     icon: '/assets/images/icon/tik-tok.png',
     label: 'TikTok',
-    value: '@maquinasosinaga',
+    value: 'Tiktok',
     link: 'https://www.tiktok.com/@maquinariasosinaga/',
   },
   {
