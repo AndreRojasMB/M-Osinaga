@@ -9,31 +9,37 @@ import Typography from '@mui/material/Typography';
 
 const contactInfo = [
   {
-    icon: '📞',
-    label: 'Teléfono',
-    value: '+51 997 425 196',
-    link: 'tel:+51997425196',
-  },
-  {
-    icon: '📧',
+    icon: '/assets/images/icon/correo-electronico.png',
     label: 'Correo',
     value: 'info@maquinasosinaga.com',
     link: 'mailto:info@maquinasosinaga.com',
   },
   {
-    icon: '📷',
+    icon: '/assets/images/icon/instagram.png',
     label: 'Instagram',
     value: '@maquinasosinaga',
     link: 'https://instagram.com/maquinasosinaga',
   },
   {
-    icon: '🎵',
+    icon: '/assets/images/icon/tik-tok.png',
     label: 'TikTok',
     value: '@maquinasosinaga',
     link: 'https://tiktok.com/@maquinasosinaga',
   },
   {
-    icon: '📍',
+    icon: '/assets/images/icon/youtube.png',
+    label: 'YouTube',
+    value: '@maquinasosinaga',
+    link: 'https://youtube.com/@maquinasosinaga',
+  },
+  {
+    icon: '/assets/images/icon/facebook.png',
+    label: 'Facebook',
+    value: '@maquinasosinaga',
+    link: 'https://facebook.com/maquinasosinaga',
+  },
+  {
+    icon: '/assets/images/icon/locacion.png',
     label: 'Ubicación',
     value: 'Calle Las Retamas 260\nSalamanca, Ate - Lima\nPerú',
     link: 'https://maps.google.com/?q=Calle+Las+Retamas+260+Salamanca+Ate+Lima+Peru',
@@ -77,15 +83,15 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
             gap: { xs: 6, md: 10 },
-            alignItems: 'stretch', // ⬅️0ahora ambas columnas tienen la misma altura
+            alignItems: 'stretch',
           }}
         >
           {/* Imagen y Frase - Izquierda */}
           <Box
             sx={{
-              display: 'flex',                // ⬅️ columna como flex
+              display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',       // ⬅️ contenido centrado verticalmente
+              justifyContent: 'center',
               height: '100%',
               animation: 'slideInLeft 0.8s ease-out',
               '@keyframes slideInLeft': {
@@ -94,7 +100,6 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
               },
             }}
           >
-            {/* Imagen con persona */}
             <Box
               sx={{
                 position: 'relative',
@@ -117,7 +122,6 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
               />
             </Box>
 
-            {/* Frase */}
             <Box
               sx={{
                 border: '2px solid #faf7f2',
@@ -152,9 +156,9 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
           {/* Información de Contacto - Derecha */}
           <Box
             sx={{
-              display: 'flex',                // ⬅️ columna como flex
+              display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',       // ⬅️ contenido centrado verticalmente
+              justifyContent: 'center',
               height: '100%',
               animation: 'slideInRight 0.8s ease-out',
               '@keyframes slideInRight': {
@@ -166,10 +170,10 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: '2.5rem', md: '3.0rem' },
+                fontSize: { xs: '2.5rem', md: '3rem' },
                 fontWeight: 700,
                 color: '#ffffff',
-                mb: 2.5, // título se mantiene arriba dentro de la columna
+                mb: 2.5,
               }}
             >
               Contáctanos
@@ -204,22 +208,21 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                     },
                   }}
                 >
-                  {/* Icon Circle */}
+                  {/* Icon as image */}
                   <Box
+                    component="img"
+                    src={item.icon}
+                    alt={item.label}
                     sx={{
                       width: 50,
                       height: 50,
+                      objectFit: 'contain',
+                      flexShrink: 0,
                       bgcolor: '#19304e',
                       borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '1.5rem',
-                      flexShrink: 0,
+                      p: 1.2,
                     }}
-                  >
-                    {item.icon}
-                  </Box>
+                  />
 
                   {/* Text */}
                   <Box sx={{ flex: 1 }}>
@@ -238,7 +241,7 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
               ))}
             </Box>
 
-            {/* WhatsApp CTA Extra */}
+            {/* WhatsApp CTA */}
             <Box
               sx={{
                 mt: 3,
