@@ -13,7 +13,7 @@ export function ServicesHero({ sx, ...other }: BoxProps) {
         minHeight: '50vh',
         display: 'flex',
         alignItems: 'center',
-        bgcolor: '#385882',
+        bgcolor: '#19304e',
         pt: { xs: 12, md: 15 },
         pb: { xs: 6, md: 8 },
         position: 'relative',
@@ -83,7 +83,7 @@ export function ServicesHero({ sx, ...other }: BoxProps) {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3rem' },
                   fontWeight: 700,
-                  color: '#0768E8',
+                  color: '#faf7f2',
                 }}
               >
                 +25
@@ -97,7 +97,7 @@ export function ServicesHero({ sx, ...other }: BoxProps) {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3rem' },
                   fontWeight: 700,
-                  color: '#0768E8',
+                  color: '#faf7f2',
                 }}
               >
                 500+
@@ -111,7 +111,7 @@ export function ServicesHero({ sx, ...other }: BoxProps) {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3rem' },
                   fontWeight: 700,
-                  color: '#0768E8',
+                  color: '#faf7f2',
                 }}
               >
                 24/7

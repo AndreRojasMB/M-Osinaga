@@ -24,7 +24,7 @@ export function ProductUseCases({ useCases, sx, ...other }: ProductUseCasesProps
     <Box
       component="section"
       sx={{
-        bgcolor: '#385882',
+        bgcolor: '#19304e',
         py: { xs: 8, md: 12 },
         ...sx,
       }}

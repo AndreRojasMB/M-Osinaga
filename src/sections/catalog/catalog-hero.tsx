@@ -40,13 +40,13 @@ export function CatalogHero({ sx, ...other }: BoxProps) {
         </Typography>
         <Typography
           sx={{
-            fontSize: { xs: '1rem', md: '1.3rem' },
+            fontSize: { xs: '1rem', md: '2rem' },
             color: '#D6C5B5',
             textAlign: 'center',
             animation: 'fadeInUp 0.8s ease-out 0.2s backwards',
           }}
         >
-          Conoce todos nuestros modelos de maquinaria industrial
+          Conoce toda la maquinaria que fabricamos
         </Typography>
       </Container>
     </Box>

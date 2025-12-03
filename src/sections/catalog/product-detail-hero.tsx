@@ -135,7 +135,7 @@ export function ProductDetailHero({ product, sx, ...other }: ProductDetailHeroPr
                     borderRadius: 2,
                     overflow: 'hidden',
                     cursor: 'pointer',
-                    border: selectedImage === index ? '3px solid #0768E8' : '3px solid transparent',
+                    border: selectedImage === index ? '3px solid #BBCCE2' : '3px solid transparent',
                     transition: 'all 0.3s ease',
                     opacity: selectedImage === index ? 1 : 0.6,
                     '&:hover': {
@@ -172,7 +172,7 @@ export function ProductDetailHero({ product, sx, ...other }: ProductDetailHeroPr
             <Chip
               label={product.category}
               sx={{
-                bgcolor: '#0768E8',
+                bgcolor: '#BBCCE2',
                 color: 'white',
                 fontWeight: 600,
                 mb: 2,
@@ -214,7 +214,7 @@ export function ProductDetailHero({ product, sx, ...other }: ProductDetailHeroPr
               <Typography
                 variant="h6"
                 sx={{
-                  color: '#0768E8',
+                  color: '#faf7f2',
                   fontWeight: 700,
                   mb: 2,
                 }}

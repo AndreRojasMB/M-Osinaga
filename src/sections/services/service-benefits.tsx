@@ -15,7 +15,7 @@ export function ServiceBenefits({ benefits, sx, ...other }: ServiceBenefitsProps
     <Box
       component="section"
       sx={{
-        bgcolor: '#385882',
+        bgcolor: '#19304e',
         py: { xs: 8, md: 12 },
         ...sx,
       }}

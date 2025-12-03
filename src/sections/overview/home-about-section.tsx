@@ -4,36 +4,34 @@ import { useRef, useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 // ----------------------------------------------------------------------
 
 const features = [
   {
-    icon: '🔧',
-    text: 'Diseñamos y fabricamos maquinaria en Acero inoxidable',
+    iconSrc: '/assets/images/icon/ic1.png',
+    text: 'Diseñamos y fabricamos maquinaria en Acero Inoxidable 304.',
   },
   {
-    icon: '💧',
-    text: 'Especialistas en Generadores de vapor',
+    iconSrc: '/assets/images/icon/ic2.png',
+    text: 'Especialistas en maquinaria para sauna y spa.',
   },
   {
-    icon: '🌡️',
-    text: 'Intercambiadores de calor y Calentadores de agua',
+    iconSrc: '/assets/images/icon/ic 3.png',
+    text: 'Brindamos asesoría técnica personalizada.',
   },
   {
-    icon: '📍',
-    text: 'Brindamos tecnología peruana fabricada localmente',
+    iconSrc: '/assets/images/icon/ic 4.png',
+    text: 'Equipos automatizados con tecnología de última generación.',
   },
   {
-    icon: '💡',
-    text: 'Te asesoramos para hacer realidad tu proyecto',
+    iconSrc: '/assets/images/icon/ic 5.png',
+    text: 'Compromiso con la seguridad, eficiencia y ahorro energético.',
   },
 ];
 
 export function HomeAboutSection({ sx, ...other }: BoxProps) {
-  const theme = useTheme();
   const [counter, setCounter] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -98,65 +96,59 @@ export function HomeAboutSection({ sx, ...other }: BoxProps) {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
             mb: { xs: 6, md: 8 },
-            flexWrap: 'wrap',
-            gap: 4,
+            gap: { xs: 2, md: 4 },
             animation: 'fadeInUp 0.8s ease-out',
             '@keyframes fadeInUp': {
               from: { opacity: 0, transform: 'translateY(30px)' },
               to: { opacity: 1, transform: 'translateY(0)' },
             },
+            flexWrap: { xs: 'wrap', md: 'nowrap' },
           }}
         >
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: '2.5rem', md: '4rem' },
-              fontWeight: 700,
-              color: '#ffffff',
-              letterSpacing: 2,
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3.2rem', lg: '3.8rem' },
+              fontWeight: 900,
+              color: 'white',
+              letterSpacing: 3,
+              flexShrink: 0,
             }}
           >
             NOSOTROS
           </Typography>
 
-          {/* Contador de años */}
           <Box
             sx={{
               display: 'flex',
-              alignItems: 'baseline',
-              gap: 1,
+              alignItems: 'center',
+              gap: 1.5,
+              flexShrink: 0,
+              ml: { xs: 1.5, md: 3 },
             }}
           >
             <Typography
               sx={{
-                fontSize: '2rem',
-                color: '#0768E8',
-                fontWeight: 700,
-              }}
-            >
-              +
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: { xs: '3rem', md: '3.5rem' },
-                fontWeight: 700,
-                color: '#0768E8',
+                fontSize: { xs: '2.4rem', sm: '3rem', md: '3.6rem', lg: '4rem' },
+                fontWeight: 900,
+                color: '#BBCCE2',
                 lineHeight: 1,
-                minWidth: 60,
               }}
             >
-              {counter}
+              + {counter}
             </Typography>
             <Typography
               sx={{
-                fontSize: '1rem',
-                color: '#D6C5B5',
+                fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.2rem', lg: '1.35rem' },
+                color: '#BBCCE2',
                 fontWeight: 500,
+                lineHeight: 1.3,
+                maxWidth: { xs: 150, sm: 200, md: 250 },
               }}
             >
-              años de experiencia
+              años de experiencia en la industria
             </Typography>
           </Box>
         </Box>
@@ -176,7 +168,7 @@ export function HomeAboutSection({ sx, ...other }: BoxProps) {
         >
           {features.map((feature, index) => (
             <Box
-              key={index}
+              key={feature.text}
               sx={{
                 bgcolor: '#BBCCE2',
                 p: 4,
@@ -197,7 +189,7 @@ export function HomeAboutSection({ sx, ...other }: BoxProps) {
                 },
               }}
             >
-              {/* Icon Circle */}
+              {/* Icono como imagen dentro del círculo */}
               <Box
                 sx={{
                   width: 70,
@@ -207,7 +199,6 @@ export function HomeAboutSection({ sx, ...other }: BoxProps) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '2rem',
                   flexShrink: 0,
                   transition: 'transform 0.3s ease',
                   '&:hover': {
@@ -215,7 +206,17 @@ export function HomeAboutSection({ sx, ...other }: BoxProps) {
                   },
                 }}
               >
-                {feature.icon}
+                <Box
+                  component="img"
+                  src={feature.iconSrc}
+                  alt={feature.text}
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    objectFit: 'contain',
+                    display: 'block',
+                  }}
+                />
               </Box>
 
               <Typography

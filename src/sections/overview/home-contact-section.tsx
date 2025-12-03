@@ -15,16 +15,22 @@ const contactInfo = [
     link: 'tel:+51997425196',
   },
   {
-    icon: '📘',
-    label: 'Facebook',
-    value: 'facebook',
-    link: 'https://facebook.com/maquinasosinaga',
+    icon: '📧',
+    label: 'Correo',
+    value: 'info@maquinasosinaga.com',
+    link: 'mailto:info@maquinasosinaga.com',
   },
   {
-    icon: '📺',
-    label: 'YouTube',
-    value: 'youtube',
-    link: 'https://youtube.com/@maquinasosinaga',
+    icon: '📷',
+    label: 'Instagram',
+    value: '@maquinasosinaga',
+    link: 'https://instagram.com/maquinasosinaga',
+  },
+  {
+    icon: '🎵',
+    label: 'TikTok',
+    value: '@maquinasosinaga',
+    link: 'https://tiktok.com/@maquinasosinaga',
   },
   {
     icon: '📍',
@@ -71,12 +77,16 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
             gap: { xs: 6, md: 10 },
-            alignItems: 'center',
+            alignItems: 'stretch', // ⬅️0ahora ambas columnas tienen la misma altura
           }}
         >
           {/* Imagen y Frase - Izquierda */}
           <Box
             sx={{
+              display: 'flex',                // ⬅️ columna como flex
+              flexDirection: 'column',
+              justifyContent: 'center',       // ⬅️ contenido centrado verticalmente
+              height: '100%',
               animation: 'slideInLeft 0.8s ease-out',
               '@keyframes slideInLeft': {
                 from: { opacity: 0, transform: 'translateX(-50px)' },
@@ -90,18 +100,18 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                 position: 'relative',
                 borderRadius: 4,
                 overflow: 'hidden',
-                mb: 4,
+                mb: 3,
                 boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-                border: '4px solid #0768E8',
+                border: '4px solid #faf7f2',
               }}
             >
               <Box
                 component="img"
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600"
+                src="/assets/images/contact.png"
                 alt="Equipo Osinaga"
                 sx={{
                   width: '100%',
-                  aspectRatio: '16/10',
+                  aspectRatio: '11.7/10',
                   objectFit: 'cover',
                 }}
               />
@@ -110,10 +120,9 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             {/* Frase */}
             <Box
               sx={{
-                bgcolor: 'rgba(187, 204, 226, 0.1)',
-                border: '2px solid #0768E8',
+                border: '2px solid #faf7f2',
                 borderRadius: 3,
-                p: 4,
+                p: 3,
                 textAlign: 'center',
               }}
             >
@@ -121,7 +130,7 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                 sx={{
                   fontSize: { xs: '1.5rem', md: '2rem' },
                   fontWeight: 700,
-                  color: '#ffffff',
+                  color: '#faf7f2',
                   lineHeight: 1.3,
                 }}
               >
@@ -131,7 +140,7 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                 sx={{
                   fontSize: { xs: '1.5rem', md: '2rem' },
                   fontWeight: 700,
-                  color: '#0768E8',
+                  color: '#faf7f2',
                   lineHeight: 1.3,
                 }}
               >
@@ -143,6 +152,10 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
           {/* Información de Contacto - Derecha */}
           <Box
             sx={{
+              display: 'flex',                // ⬅️ columna como flex
+              flexDirection: 'column',
+              justifyContent: 'center',       // ⬅️ contenido centrado verticalmente
+              height: '100%',
               animation: 'slideInRight 0.8s ease-out',
               '@keyframes slideInRight': {
                 from: { opacity: 0, transform: 'translateX(50px)' },
@@ -153,16 +166,16 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             <Typography
               variant="h2"
               sx={{
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
+                fontSize: { xs: '2.5rem', md: '3.0rem' },
                 fontWeight: 700,
                 color: '#ffffff',
-                mb: 6,
+                mb: 2.5, // título se mantiene arriba dentro de la columna
               }}
             >
               Contáctanos
             </Typography>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
               {contactInfo.map((item, index) => (
                 <Button
                   key={index}
@@ -172,10 +185,10 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 3,
+                    gap: 2.5,
                     bgcolor: '#BBCCE2',
-                    p: 2.5,
-                    borderRadius: 4,
+                    p: 2,
+                    borderRadius: 3,
                     textAlign: 'left',
                     textTransform: 'none',
                     transition: 'all 0.3s ease',
@@ -194,14 +207,14 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                   {/* Icon Circle */}
                   <Box
                     sx={{
-                      width: 60,
-                      height: 60,
+                      width: 50,
+                      height: 50,
                       bgcolor: '#19304e',
                       borderRadius: '50%',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.8rem',
+                      fontSize: '1.5rem',
                       flexShrink: 0,
                     }}
                   >
@@ -213,7 +226,7 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                     <Typography
                       sx={{
                         color: '#19304e',
-                        fontSize: { xs: '1rem', md: '1.1rem' },
+                        fontSize: { xs: '0.95rem', md: '1rem' },
                         fontWeight: 600,
                         whiteSpace: 'pre-line',
                       }}
@@ -228,10 +241,9 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
             {/* WhatsApp CTA Extra */}
             <Box
               sx={{
-                mt: 4,
-                p: 3,
-                bgcolor: 'rgba(37, 211, 102, 0.1)',
-                border: '2px solid #25D366',
+                mt: 3,
+                p: 2.5,
+                border: '2px solid #faf7f2',
                 borderRadius: 3,
                 textAlign: 'center',
               }}
@@ -240,10 +252,10 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                 sx={{
                   color: '#faf7f2',
                   mb: 2,
-                  fontSize: '1.1rem',
+                  fontSize: '1rem',
                 }}
               >
-                ¿Necesitas una respuesta rápida?
+                Comunícate ahora:
               </Typography>
               <Button
                 href="https://wa.me/51997425196?text=Hola,%20me%20gustaría%20más%20información"
@@ -255,14 +267,14 @@ export function HomeContactSection({ sx, ...other }: BoxProps) {
                   color: 'white',
                   px: 4,
                   py: 1.5,
-                  fontSize: '1.1rem',
+                  fontSize: '1rem',
                   fontWeight: 700,
                   '&:hover': {
                     bgcolor: '#20BD5A',
                   },
                 }}
               >
-                <Box component="span" sx={{ mr: 1, fontSize: '1.3rem' }}>
+                <Box component="span" sx={{ mr: 1, fontSize: '1.2rem' }}>
                   💬
                 </Box>
                 Chatear por WhatsApp
