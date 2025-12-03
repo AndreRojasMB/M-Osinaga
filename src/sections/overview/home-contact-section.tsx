@@ -8,23 +8,29 @@ import Typography from '@mui/material/Typography';
 // ----------------------------------------------------------------------
 
 const contactInfo = [
+    {
+    icon: '📞',
+    label: 'Teléfono',
+    value: '+51 997 425 196',
+    link: 'tel:+51997425196',
+  },
   {
     icon: '/assets/images/icon/correo-electronico.png',
     label: 'Correo',
-    value: 'info@maquinasosinaga.com',
+    value: 'johnnyosinaga@gmail.com',
     link: 'mailto:info@maquinasosinaga.com',
   },
   {
     icon: '/assets/images/icon/instagram.png',
     label: 'Instagram',
     value: '@maquinasosinaga',
-    link: 'https://instagram.com/maquinasosinaga',
+    link: 'https://www.instagram.com/maquinariasosinaga/',
   },
   {
     icon: '/assets/images/icon/tik-tok.png',
     label: 'TikTok',
     value: '@maquinasosinaga',
-    link: 'https://tiktok.com/@maquinasosinaga',
+    link: 'https://www.tiktok.com/@maquinariasosinaga/',
   },
   {
     icon: '/assets/images/icon/locacion.png',
